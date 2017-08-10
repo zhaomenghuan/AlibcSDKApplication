@@ -1,0 +1,338 @@
+<!--package="com.hyxk.ggmall.personal"-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="87"
+    android:versionName="2.6"
+    package="com.alibaba.sdk.trade.demo">
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-sdk android:minSdkVersion="8" />
+    <!-- HBuilder Runtime 基础权限   begin -->
+    <!-- 联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 使用存储卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- Html5Plus runtime基础权限   end -->
+
+
+    <!-- Audio begin -->
+    <!-- 访问录音设备 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 修改播放声音通道 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- Audio end -->
+
+
+    <!-- Camera  begin -->
+    <!-- 调用摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <!-- Camera  end -->
+
+
+    <!-- Contacts  begin -->
+    <!-- 访问联系人 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- Contacts  end -->
+
+
+    <!-- Device begin -->
+    <!-- 屏幕保持唤醒 不锁屏  plus.device.setWakelock();plus.device.isWakelock(); -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 震动 权限 plus.device.vibrate(); -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 拨打电话 plus.device.dail(); -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- 访问网络状态 plus.networkinfo.* -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 读写手机状态和身份 plus.devices.* -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Device end -->
+
+
+    <!-- Messaging begin -->
+    <!-- 拨打电话权限 -->
+    <!-- 发短信权限 -->
+    <!-- 读/写短/彩信箱权限 -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <!-- Messaging end -->
+
+
+    <!-- Invocation - JSB begin -->
+    <!-- 调用系统API，通过Native.js调用系统API需要的权限添加到这里 -->
+    <!-- 安装快捷方式 -->
+    <!-- 卸载快捷方式 -->
+    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+    <!-- Invocation - JSB end -->
+    <!-- Share(分享)  begin -->
+
+    <!-- Share - 微信分享 -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- Speech(语音识别)  begin -->
+    <!-- Speech - 讯飞语音云 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- Speech(语音识别)  end -->
+
+    <!-- QQ分享 begin -->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <!-- QQ分享  end -->
+
+
+
+    <application
+        android:allowClearUserData="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:name="io.github.zhaomenghuan.alibc.AliSdkApplication">
+        <activity
+            android:name="io.github.zhaomenghuan.alibc.EntryActivity"
+            android:configChanges="orientation|keyboardHidden|keyboard|navigation"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:hardwareAccelerated="true"
+            android:theme="@style/TranslucentTheme"
+            android:screenOrientation="user"
+            android:windowSoftInputMode="adjustResize" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--<activity-->
+            <!--android:name="io.dcloud.PandoraEntryActivity"-->
+            <!--android:configChanges="orientation|keyboardHidden|screenSize|keyboard|navigation|mcc|mnc|fontScale"-->
+            <!--android:hardwareAccelerated="true"-->
+            <!--android:label="5+Debug"-->
+            <!--android:launchMode="singleTask"-->
+            <!--android:screenOrientation="user"-->
+            <!--android:theme="@style/DCloudTheme"-->
+            <!--android:windowSoftInputMode="adjustResize" >-->
+        <!--</activity>-->
+
+        <service
+            android:name="io.dcloud.common.adapter.io.MiniServerService"
+            android:exported="true" />
+
+        <activity android:name="io.dcloud.imagepick.CustomGalleryActivity" >
+            <intent-filter>
+                <action android:name="io.dcloud.ACTION_PICK" />
+                <action android:name="io.dcloud.ACTION_MULTIPLE_PICK" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- Oauth 授权登陆 start -->
+        <!-- Oauth QQ start -->
+        <!-- QQ 分享 配置和授权登陆相同 -->
+        <meta-data
+            android:name="QQ_APPID"
+            android:value="1106127952" />
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="1106127952"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- Oauth QQ end -->
+
+
+        <!-- Oauth Sina start -->
+        <!--
+             为防止Android Studio导入工程时报错将新浪微博的授权登陆暂时注释
+            在项目开发中如同时用到了新浪微博的授权和分享请将两条的配置合并
+        -->
+        <!--
+        meta-data
+            android:name="SINA_REDIRECT_URI"
+            android:value="%redirect_uri%" />
+        <meta-data
+            android:name="SINA_APPKEY"
+            android:value="_%appkey%" />
+
+        <activity
+            android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser"
+            android:configChanges="keyboardHidden|orientation"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" >
+        </activity
+        -->
+        <!-- Oauth Sina end -->
+        <!-- Oauth 授权登陆 end -->
+
+
+        <!-- Speech(语音识别)-讯飞语音 begin -->
+        <!-- 官方网站：http://open.voicecloud.cn/ -->
+        <!-- meta-data节点android:name="IFLY_APPKEY"项中android:value值为讯飞语音云网站申请的APPKEY，由于它是和libs目录下的jar包是绑定的，不要修改此值 -->
+        <meta-data
+            android:name="IFLY_APPKEY"
+            android:value="53feacdd" />
+        <!-- Speech(语音识别)-讯飞语音 end -->
+
+
+        <!--&lt;!&ndash; Push(推送)-个推 begin &ndash;&gt;-->
+        <!--&lt;!&ndash; 官方网站：http://www.igetui.com/ &ndash;&gt;-->
+        <!--&lt;!&ndash; meta-data节点android:name="appid"项中android:value值为个推服务器上申请的APPID &ndash;&gt;-->
+        <!--&lt;!&ndash; meta-data节点android:name="appkey"项中android:value值为个推服务器上申请的APPKEY &ndash;&gt;-->
+        <!--&lt;!&ndash; meta-data节点android:name="appsecret"项中android:value值为个推服务器上申请的APPSECRET &ndash;&gt;-->
+        <!--&lt;!&ndash; 个推 aps配置  begin &ndash;&gt;-->
+        <!--<meta-data android:name="PUSH_APPID" android:value="UmGWY7dDjF9M5KfaEXmyb7"/>-->
+        <!--<meta-data android:name="PUSH_APPKEY" android:value="Vp9lOMVLfT7rqvFdTWBms9"/>-->
+        <!--<meta-data android:name="PUSH_APPSECRET" android:value="EobGmEC4T36FTyAHbeNgB7"/>-->
+        <!--<service-->
+            <!--android:name="com.igexin.sdk.PushService"-->
+            <!--android:exported="true"-->
+            <!--android:label="NotificationCenter"-->
+            <!--android:process=":pushservice">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.igexin.sdk.action.service.message"/>-->
+            <!--</intent-filter>-->
+        <!--</service>-->
+        <!--<receiver android:name="com.igexin.sdk.PushReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED"/>-->
+                <!--<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>-->
+                <!--<action android:name="android.intent.action.USER_PRESENT"/>-->
+                <!--<action android:name="com.igexin.sdk.action.refreshls"/>-->
+                <!--<action android:name="android.intent.action.MEDIA_MOUNTED"/>-->
+                <!--<action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>-->
+                <!--<action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<activity-->
+            <!--android:name="com.igexin.sdk.PushActivity"-->
+            <!--android:excludeFromRecents="true"-->
+            <!--android:exported="false"-->
+            <!--android:process=":pushservice"-->
+            <!--android:taskAffinity="com.igexin.sdk.PushActivityTask"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"/>-->
+        <!--<activity-->
+            <!--android:name="com.igexin.sdk.GActivity"-->
+            <!--android:excludeFromRecents="true"-->
+            <!--android:exported="true"-->
+            <!--android:process=":pushservice"-->
+            <!--android:taskAffinity="com.igexin.sdk.PushActivityTask"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"/>-->
+        <!--<service-->
+            <!--android:name="com.igexin.download.DownloadService"-->
+            <!--android:process=":pushservice"/>-->
+        <!--<receiver android:name="com.igexin.download.DownloadReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<provider-->
+            <!--android:name="com.igexin.download.DownloadProvider"-->
+            <!--android:authorities="downloads.%填写自己的包名%"-->
+            <!--android:exported="true"-->
+            <!--android:process=":pushservice"/>-->
+        <!--<receiver android:name="io.dcloud.feature.apsGt.GTNotificationReceiver">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED"/>-->
+                <!--<action android:name="%填写自己的包名%.__CREATE_NOTIFICATION"/>-->
+                <!--<action android:name="%填写自己的包名%.__REMOVE_NOTIFICATION"/>-->
+                <!--<action android:name="%填写自己的包名%.__CLEAR_NOTIFICATION"/>-->
+                <!--<action android:name="%填写自己的包名%.__CLILK_NOTIFICATION"/>-->
+            <!--</intent-filter>-->
+        <!--</receiver>-->
+        <!--<service-->
+            <!--android:name="io.dcloud.feature.apsGt.GTNormalIntentService"/>-->
+        <!--<service-->
+            <!--android:name="io.dcloud.feature.apsGt.GTNormalPushService"-->
+            <!--android:exported="true"-->
+            <!--android:label="PushService"-->
+            <!--android:process=":pushservice">-->
+        <!--</service>-->
+        <!--&lt;!&ndash; Push(推送)-个推  end &ndash;&gt;-->
+
+
+        <!-- Share(分享) begin -->
+
+        <!-- 微信分享 配置begin -->
+        <meta-data
+            android:name="WX_SECRET"
+            android:value="c4e75bb526cb432ed4fadf96a0fc136a" />
+        <meta-data
+            android:name="WX_APPID"
+            android:value="wx4cc83a936daf778d" />
+
+        <activity
+            android:name="com.HBuilder.integrate.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="wx4cc83a936daf778d" />
+            </intent-filter>
+        </activity>
+
+        <!-- 支付宝支付 配置begin -->
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+        </activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind" >
+        </activity>
+        <!-- 支付宝支付 配置end -->
+
+
+        <!-- 微信支付配置 start -->
+        <activity
+            android:name="com.HBuilder.integrate.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="WX_APPID"
+            android:value="wx4cc83a936daf778d" />
+        <!-- 微信支付配置end -->
+
+    </application>
+
+</manifest>

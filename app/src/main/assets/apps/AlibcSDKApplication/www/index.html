@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#ff176b">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<title></title>
+	</head>
+
+	<body>
+		<div class="mui-content mui-content-padded">
+			<button onclick="login()" type="button" class="mui-btn mui-btn-blue mui-btn-block">login</button>
+			<button onclick="logout()" type="button" class="mui-btn mui-btn-blue mui-btn-block">logout</button>
+			<button onclick="isLogin()" type="button" class="mui-btn mui-btn-blue mui-btn-block">isLogin</button>
+			<button onclick="openDetail()" type="button" class="mui-btn mui-btn-blue mui-btn-block">detail</button>
+		</div>
+
+		<script type="text/javascript" src="plugin/taobaoLogin.js"></script>
+		<script type="text/javascript" src="plugin/taobaoTrade.js"></script>
+		<script type="text/javascript">
+			function login() {
+				plus.taobaoLogin.login(function(message){
+					plus.nativeUI.toast("login success:"+message);
+				}, function(error){
+					plus.nativeUI.toast("login error:"+error);
+				});
+			}
+
+			function logout() {
+				plus.taobaoLogin.logout(function(message){
+					plus.nativeUI.toast("logout success:"+message);
+				}, function(error){
+					plus.nativeUI.toast("logout error:"+error);
+				});
+			}
+
+			function isLogin() {
+				var isLogin = plus.taobaoLogin.isLogin();
+				plus.nativeUI.toast(isLogin);
+			}
+
+			function openDetail() {
+			    var url = "https://h5.m.taobao.com/awp/core/detail.htm?id=556317587855&spm=0.0.0.0.YNdaaz&abtest=26&rn=c5de50bb18b1a40fcf383c6a9029cc0d&sid=cb9b61b937ec9470b2eb1282f51eb8f8";
+				plus.taobaoTrade.openWindow(url, function(paySuccessOrders){
+                     plus.nativeUI.toast(paySuccessOrders);
+				}, function(error){
+					plus.nativeUI.toast(error);
+				})
+			}
+		</script>
+	</body>
+
+</html>

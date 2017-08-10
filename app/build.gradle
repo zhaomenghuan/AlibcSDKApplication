@@ -1,0 +1,100 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25"
+    defaultConfig {
+        applicationId "com.alibaba.sdk.trade.demo"
+        minSdkVersion 14
+        targetSdkVersion 8
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("./debug.keystore")
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        release {
+            storeFile file("./debug.keystore")
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+    }
+}
+
+dependencies {
+    compile files('libs/android-support-v4.jar')
+    compile files('libs/gallery.jar')
+    compile files('libs/my-imageloader.jar')
+    compile files('libs/my-nineoldandroids-2.4.0.jar')
+    compile files('libs/nativeObj.jar')
+    compile files('libs/nativeui.jar')
+    compile files('libs/nopermission.jar')
+    compile files('libs/pdr.jar')
+    compile files('libs/ui.jar')
+    compile files('libs/camera.jar')
+    compile files('libs/device.jar')
+    compile files('libs/navigatorui.jar')
+    compile files('libs/messaging.jar')
+    compile files('libs/invocation.jar')
+    compile files('libs/alipaySingle-20161222.jar')
+    compile files('libs/alipayutdid.jar')
+    compile files('libs/payment.jar')
+    compile files('libs/payment-alipay.jar')
+    compile files('libs/payment-weixin.jar')
+    compile files('libs/tx_wx.jar')
+    compile files('libs/oauth-weixin.jar')
+    compile files('libs/open_sdk_r5043_lite.jar')
+    compile files('libs/share.jar')
+    compile files('libs/share-qq.jar')
+    compile files('libs/share-weixin.jar')
+    compile files('libs/Msc.jar')
+    compile files('libs/speech_ifly.jar')
+    compile files('libs/speech.jar')
+    compile files('libs/oauth.jar')
+
+    //fastjson
+    compile 'com.alibaba:fastjson:1.2.9'
+
+    //支付
+    compile 'com.alibaba.alipay:alipaySingle:20160825@jar'
+
+    //登陆
+    compile 'com.ali.auth.sdk:alibabauth_core:1.1.4@jar'
+    compile 'com.ali.auth.sdk:alibabauth_ui:1.1.4@aar'
+    compile 'com.ali.auth.sdk:alibabauth_ext:1.1.4@jar'
+    //【可选】仅供特殊合作伙伴使用
+//    compile 'com.ali.auth.sdk:alibabauth_accountlink:1.1.4@jar'
+
+    //安全基础
+    compile 'com.taobao.android:securityguardaar3:5.1.81@aar'
+//    //【可选】安全高级，如使用了发放红包、优惠券高级功能，则必须引入
+//    compile 'com.taobao.android:securitybodyaar3:5.1.25@aar'
+//
+    //Mtop网关
+    compile 'com.taobao.android:mtopsdk_allinone_open:1.2.2.4@jar'
+
+    //applink
+    compile 'com.alibaba.sdk.android:alibc_link_partner:1.1.0.0'
+//
+    //UT
+    compile 'com.taobao.android:utdid4all:1.1.5.3_proguard@jar'
+    compile 'com.alibaba.mtl:app-monitor-sdk:2.5.1.3_for_bc_proguard@jar'
+
+    //电商SDK
+    compile 'com.alibaba.sdk.android:alibc_trade_common:3.1.1.107'
+    compile 'com.alibaba.sdk.android:alibc_trade_biz:3.1.1.107'
+    compile 'com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.107'
+}
