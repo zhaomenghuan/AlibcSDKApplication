@@ -12,10 +12,10 @@
 
 ## 使用说明
 
-1.生成证书文件 release.keystore;（Android Studio Build目录下的Generate Signed Apk）
-2.使用证书打包生成apk文件; (app模块下signingConfigs字段配置，需要和证书打包时候对应)
-3.将apk上传到阿里百川管理后台获取安全图片yw_1222.png.
-4.集成电商sdk
+- 1.生成证书文件 release.keystore;（Android Studio Build目录下的Generate Signed Apk）
+- 2.使用证书打包生成apk文件; (app模块下signingConfigs字段配置，需要和证书打包时候对应)
+- 3.将apk上传到阿里百川管理后台获取安全图片yw_1222.png.
+- 4.集成电商sdk
 ```
 dependencies {
     // fastjson
@@ -52,7 +52,9 @@ dependencies {
     compile 'com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.107'
 }
 ```
-5.根据电商SDK写5+ plugin
+- 5.根据电商SDK文档写5+ plugin
+
+这部分内容建议新手看视频教程加深理解。
 
 注意：AndroidManifest.xml文件下manifest=>package包名字段是应用的唯一识别码、在生成keystore文件以及安全图片后，如果更换了包名上述流程1-3需要重新进行。
 
