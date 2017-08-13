@@ -17,36 +17,26 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 使用存储卡 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.GET_TASKS" />
     <!-- Html5Plus runtime基础权限   end -->
-
-
     <!-- Audio begin -->
     <!-- 访问录音设备 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <!-- 修改播放声音通道 -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <!-- Audio end -->
-
-
     <!-- Camera  begin -->
     <!-- 调用摄像头 -->
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-feature android:name="android.hardware.camera" />
     <!-- Camera  end -->
-
-
     <!-- Contacts  begin -->
     <!-- 访问联系人 -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <!-- Contacts  end -->
-
-
     <!-- Device begin -->
     <!-- 屏幕保持唤醒 不锁屏  plus.device.setWakelock();plus.device.isWakelock(); -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -60,8 +50,6 @@
     <!-- 读写手机状态和身份 plus.devices.* -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- Device end -->
-
-
     <!-- Messaging begin -->
     <!-- 拨打电话权限 -->
     <!-- 发短信权限 -->
@@ -71,8 +59,6 @@
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <!-- Messaging end -->
-
-
     <!-- Invocation - JSB begin -->
     <!-- 调用系统API，通过Native.js调用系统API需要的权限添加到这里 -->
     <!-- 安装快捷方式 -->
@@ -81,7 +67,6 @@
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
     <!-- Invocation - JSB end -->
     <!-- Share(分享)  begin -->
-
     <!-- Share - 微信分享 -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <!-- Speech(语音识别)  begin -->
@@ -94,12 +79,9 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <!-- Speech(语音识别)  end -->
-
     <!-- QQ分享 begin -->
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <!-- QQ分享  end -->
-
-
 
     <application
         android:allowClearUserData="true"
@@ -118,30 +100,17 @@
             android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--<activity-->
-            <!--android:name="io.dcloud.PandoraEntryActivity"-->
-            <!--android:configChanges="orientation|keyboardHidden|screenSize|keyboard|navigation|mcc|mnc|fontScale"-->
-            <!--android:hardwareAccelerated="true"-->
-            <!--android:label="5+Debug"-->
-            <!--android:launchMode="singleTask"-->
-            <!--android:screenOrientation="user"-->
-            <!--android:theme="@style/DCloudTheme"-->
-            <!--android:windowSoftInputMode="adjustResize" >-->
-        <!--</activity>-->
 
         <service
             android:name="io.dcloud.common.adapter.io.MiniServerService"
             android:exported="true" />
-
         <activity android:name="io.dcloud.imagepick.CustomGalleryActivity" >
             <intent-filter>
                 <action android:name="io.dcloud.ACTION_PICK" />
                 <action android:name="io.dcloud.ACTION_MULTIPLE_PICK" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -151,7 +120,7 @@
         <!-- QQ 分享 配置和授权登陆相同 -->
         <meta-data
             android:name="QQ_APPID"
-            android:value="1106127952" />
+            android:value="" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
@@ -168,7 +137,6 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <!-- Oauth QQ end -->
-
 
         <!-- Oauth Sina start -->
         <!--
@@ -193,15 +161,13 @@
         <!-- Oauth Sina end -->
         <!-- Oauth 授权登陆 end -->
 
-
         <!-- Speech(语音识别)-讯飞语音 begin -->
         <!-- 官方网站：http://open.voicecloud.cn/ -->
         <!-- meta-data节点android:name="IFLY_APPKEY"项中android:value值为讯飞语音云网站申请的APPKEY，由于它是和libs目录下的jar包是绑定的，不要修改此值 -->
         <meta-data
             android:name="IFLY_APPKEY"
-            android:value="53feacdd" />
+            android:value="" />
         <!-- Speech(语音识别)-讯飞语音 end -->
-
 
         <!--&lt;!&ndash; Push(推送)-个推 begin &ndash;&gt;-->
         <!--&lt;!&ndash; 官方网站：http://www.igetui.com/ &ndash;&gt;-->
@@ -284,11 +250,10 @@
         <!-- 微信分享 配置begin -->
         <meta-data
             android:name="WX_SECRET"
-            android:value="c4e75bb526cb432ed4fadf96a0fc136a" />
+            android:value="" />
         <meta-data
             android:name="WX_APPID"
-            android:value="wx4cc83a936daf778d" />
-
+            android:value="" />
         <activity
             android:name="com.HBuilder.integrate.wxapi.WXEntryActivity"
             android:exported="true"
@@ -297,9 +262,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:scheme="wx4cc83a936daf778d" />
             </intent-filter>
         </activity>
@@ -320,17 +283,15 @@
         </activity>
         <!-- 支付宝支付 配置end -->
 
-
         <!-- 微信支付配置 start -->
         <activity
             android:name="com.HBuilder.integrate.wxapi.WXPayEntryActivity"
             android:exported="true"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
         <meta-data
             android:name="WX_APPID"
-            android:value="wx4cc83a936daf778d" />
+            android:value="" />
         <!-- 微信支付配置end -->
 
     </application>
